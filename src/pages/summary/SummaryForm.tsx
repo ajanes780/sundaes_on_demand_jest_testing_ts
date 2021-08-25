@@ -6,7 +6,8 @@ function SummaryForm() {
   const [show, setShow] = useState(false);
 
 
-  const popover = (
+
+  const mypopover = (
     <Popover id="popover-basic">
       <Popover.Body>
         No ice creame will actually be delivered
@@ -18,21 +19,18 @@ function SummaryForm() {
   const CheckBoxLabel = (
     <span>
     I agree to
-       <OverlayTrigger placement="right" overlay={popover}>
-          <span style={{color: "blue"}}> the Terms and Conditions</span>
+       <OverlayTrigger placement="right" overlay={mypopover}>
+          <span style={{color: "blue"}}>the Terms and Conditions</span>
        </OverlayTrigger>
-  </span>)
+    </span>)
 
 
-  return (
+    return (
     <Container>
       <Col md={12}>
         <Form.Group className="m-3" controlId="checkbox">
-
           <Form.Check onChange={() => setDissabled(!disabled)} type="checkbox" label={CheckBoxLabel}/>
-
         </Form.Group>
-
         <Button disabled={disabled} variant="primary">Confirm Order</Button>
       </Col>
     </Container>

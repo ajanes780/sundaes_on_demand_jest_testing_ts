@@ -8,7 +8,7 @@ test('Renders intital items in correct state and function', () => {
   render(<SummaryForm/>);
 
   const button = screen.getByRole("button", {name: "Confirm Order"});
-  const checkBox = screen.getByRole("checkbox", {name: "I agree to the Terms and Conditions"})
+  const checkBox = screen.getByRole("checkbox", {name: /I agree to the Terms and Conditions/i})
   expect(checkBox).toBeInTheDocument();
   expect(button).toBeInTheDocument();
 
@@ -19,7 +19,7 @@ test(" Checkbox enables on first click and disables on secound", () => {
 
   render(<SummaryForm/>);
   const button = screen.getByRole("button", {name: "Confirm Order"});
-  const checkBox = screen.getByRole("checkbox", {name: "I agree to the Terms and Conditions"})
+  const checkBox = screen.getByRole("checkbox", {name: /I agree to the Terms and Conditions/i})
   fireEvent.click(checkBox)
   expect(checkBox).toBeChecked()
   expect(button).toBeEnabled()
@@ -32,7 +32,7 @@ test("Does popover appear and disappear on hover", async () => {
   render(<SummaryForm/>);
 
   //Popover should not be present
-  const nullPopover = screen.queryByText(/no ice creame will actually be delivered/i)
+  const nullPopover = screen.queryByText(/ rocjky road no ice creame will actually be delivered/i)
   expect(nullPopover).not.toBeInTheDocument()
 
   //popover appears upon mouseover of checkbox label
