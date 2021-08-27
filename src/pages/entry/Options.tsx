@@ -7,7 +7,7 @@ import ToppingOptions from './ToppingOptions';
 import AlertBanner from '../components/AlertBanner';
 
 const Options: FC<{ optionsType: string }> = ({ optionsType }) => {
-  // using type any as we don't explict say what the data will look like yet
+  // using type any as we don't expilict say what the data will look like yet
   const [items, setItems] = useState<any[]>([]);
   const [error, setError] = useState<boolean>(false);
   const [message, setMessage] = useState<string>('');
